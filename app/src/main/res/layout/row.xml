@@ -13,7 +13,7 @@
             android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" app:layout_constraintDimensionRatio="16:9" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="21dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/textView_video_title"/>
     <TextView
             android:text="Video Title"
@@ -22,9 +22,10 @@
             android:id="@+id/textView_video_title"
             app:layout_constraintTop_toBottomOf="@+id/imageView_thumbnail_video"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/imageView_chanel_profile" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toTopOf="@+id/textView_channel_name"
+            android:layout_marginBottom="8dp"/>
     <TextView
             android:text="Chanel Name"
             android:layout_width="0dp"
