@@ -1,5 +1,6 @@
 package com.example.semestralna_praca_vamz
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -21,16 +22,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView_main.layoutManager = LinearLayoutManager(this)
 //        recyclerView_main.adapter = MainAdapter()
 
+        startService(Intent(this, MyService::class.java))
+
         fetchJson()
     }
 
     fun fetchJson() {
-        println("Attempting to fetch JSON")
-
+//        println("Attempting to fetch JSON")
         var url = "https://api.fallbo.sk/VAMZ/home_feed.json"
-
         var request = Request.Builder().url(url).build()
-
         var client = OkHttpClient()
 
         // nemôžem volať priamo na main vlákne tak volám callbackovú funkciu na backgrounde
