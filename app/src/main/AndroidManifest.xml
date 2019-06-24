@@ -28,8 +28,13 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                        android:value=".MainActivity"/>
 
+        </activity>
+        <activity android:name=".LessonsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".DetailActivity"/>
 
         </activity>
+
     </application>
 
 </manifest>

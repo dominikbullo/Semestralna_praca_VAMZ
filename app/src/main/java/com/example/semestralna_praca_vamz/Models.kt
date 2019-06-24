@@ -7,3 +7,5 @@ class Video(
 )
 
 class Channel(val name: String, val profileImageUrl: String)
+
+class Lessons(val name: String, val duration: String, val number: Int, val imageUrl: String, val link: String)

@@ -1,6 +1,7 @@
 package com.example.semestralna_praca_vamz
 
 import android.content.Intent
+import android.provider.Settings.Global.getString
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -34,17 +35,25 @@ class MainAdapter(val homeFeed: HomeFeed) : RecyclerView.Adapter<CustomViewHolde
         Picasso.with(holder.itemView.context).load(video.channel.profileImageUrl).into(chanelProfileImageView)
 
 
+        holder.video = video
     }
 
 }
 
-class CustomViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+class CustomViewHolder(val view: View, var video: Video? = null) : RecyclerView.ViewHolder(view) {
+    companion object {
+        val VIDEO_TITLE_KEY = "VIDEO_TITLE"
+        val VIDEO_ID_KEY = "VIDEO_ID"
+    }
 
     init {
         view.setOnClickListener {
             println("TEST")
 
             var intent = Intent(view.context, DetailActivity::class.java)
+
+            intent.putExtra(VIDEO_TITLE_KEY, video?.name)
+            intent.putExtra(VIDEO_ID_KEY, video?.id)
             view.context.startActivity(intent)
         }
     }

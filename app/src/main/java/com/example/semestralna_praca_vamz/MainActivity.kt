@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread() {
                     recyclerView_main.adapter = MainAdapter(homefeed)
                 }
-
             }
 
             override fun onFailure(call: Call, e: IOException) {

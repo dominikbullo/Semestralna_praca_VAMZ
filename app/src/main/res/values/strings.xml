@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Semestralna_Praca_VAMZ</string>
-    <string name="client_id">your_client_id</string>
-    <string name="callback_url">https://instagram.com/</string>
-    <string name="base_url">https://api.instagram.com/</string>
+    <string name="VIDEO_TITLE_KEY">VIDEO_TITLE_KEY</string>
 </resources>
