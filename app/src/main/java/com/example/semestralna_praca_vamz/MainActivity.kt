@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 //        recyclerView_main.setBackgroundColor(Color.BLUE)
         recyclerView_main.layoutManager = LinearLayoutManager(this)
-        recyclerView_main.adapter = MainAdapter()
+//        recyclerView_main.adapter = MainAdapter()
 
         fetchJson()
     }
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         var client = OkHttpClient()
 
-        // nemôžem volať priamo na main vlákne tak volám callbackovú funkciu
+        // nemôžem volať priamo na main vlákne tak volám callbackovú funkciu na backgrounde
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
@@ -42,6 +42,12 @@ class MainActivity : AppCompatActivity() {
                 val gson = GsonBuilder().create()
 
                 var homefeed = gson.fromJson(body, HomeFeed::class.java)
+
+                // musí bežať na main thred
+                runOnUiThread() {
+                    recyclerView_main.adapter = MainAdapter(homefeed)
+                }
+
             }
 
             override fun onFailure(call: Call, e: IOException) {
@@ -51,11 +57,3 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
-
-class HomeFeed(val videos: List<Video>)
-
-class Video(
-    val id: Int, val name: String, val link: String, val imageUrl: String, val numberOFViews: Int, val channel: Channel
-)
-
-class Channel(val name: String, val profileImageUrl: String)
