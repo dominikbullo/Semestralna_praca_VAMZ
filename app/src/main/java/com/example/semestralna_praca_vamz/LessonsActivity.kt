@@ -11,6 +11,12 @@ class LessonsActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_lesson)
 //        webview_lesson.setBackgroundColor(Color.YELLOW)
-        webview_lesson.loadUrl("https://www.google.sk/")
+        val link = intent.getStringExtra(DetailActivity.DetailLessonViewHolder.LESSON_LINK_KEY)
+
+        webview_lesson.settings.javaScriptEnabled = true
+        webview_lesson.settings.loadWithOverviewMode = true
+        webview_lesson.settings.useWideViewPort = true
+
+        webview_lesson.loadUrl(link)
     }
 }
