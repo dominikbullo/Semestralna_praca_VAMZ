@@ -40,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun fetchJSON() {
         var videoID = intent.getIntExtra(CustomViewHolder.VIDEO_ID_KEY, -1)
-        val url = "https://api.letsbuildthatapp.com/youtube/course_detail?id=" + videoID
+        val url = "https://api.fallbo.sk/VAMZ/course_detail_" + videoID + ".json"
 
         var request = Request.Builder().url(url).build()
 

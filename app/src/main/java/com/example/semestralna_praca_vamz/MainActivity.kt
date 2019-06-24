@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     fun fetchJson() {
         println("Attempting to fetch JSON")
 
-        var url = "https://api.letsbuildthatapp.com/youtube/home_feed"
+        var url = "https://api.fallbo.sk/VAMZ/home_feed.json"
 
         var request = Request.Builder().url(url).build()
 
