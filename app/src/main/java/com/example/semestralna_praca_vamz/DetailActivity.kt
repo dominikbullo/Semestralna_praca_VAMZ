@@ -43,7 +43,6 @@ class DetailActivity : AppCompatActivity() {
         val url = "https://api.fallbo.sk/VAMZ/detail_" + videoID + ".json"
 
         var request = Request.Builder().url(url).build()
-
         var client = OkHttpClient()
 
         // nemôžem volať priamo na main vlákne tak volám callbackovú funkciu na backgrounde
@@ -93,7 +92,7 @@ class DetailActivity : AppCompatActivity() {
 
             val lesson = lessons.get(position)
             holder.customView.textView_lesson_title.text = lesson.name
-            holder.customView.textView_duration.text = lesson.duration
+            holder.customView.textView_duration.text = "Followers: " + lesson.duration.toString()
 
             val thumbnailImageView = holder.customView.imageView_lesson_thumbnail
             Picasso.with(holder.customView.context).load(lesson.imageUrl).into(thumbnailImageView)
@@ -111,12 +110,10 @@ class DetailActivity : AppCompatActivity() {
 
         init {
             customView.setOnClickListener {
-                println("TEST")
+                //                println("TEST")
 
                 var intent = Intent(customView.context, LessonsActivity::class.java)
-
                 intent.putExtra(LESSON_LINK_KEY, lesson?.link)
-
                 customView.context.startActivity(intent)
 
             }
