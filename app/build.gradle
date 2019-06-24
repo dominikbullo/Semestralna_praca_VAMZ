@@ -38,4 +38,10 @@ dependencies {
 
 // Gson: https://guides.codepath.com/android/leveraging-the-gson-library
     implementation 'com.google.code.gson:gson:2.8.5'
+
+//    Picasso: http://square.github.io/picasso/
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+//    CircleImageView: https://github.com/hdodenhof/CircleIm...
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
