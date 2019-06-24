@@ -4,9 +4,12 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import java.io.IOException
+import com.google.gson.Gson
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +38,10 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
                 println(body)
+
+                val gson = GsonBuilder().create()
+
+                var homefeed = gson.fromJson(body, HomeFeed::class.java)
             }
 
             override fun onFailure(call: Call, e: IOException) {
@@ -45,5 +52,10 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//class HomeFeed(val user: User, val videos : List <Video>)
 class HomeFeed(val videos: List<Video>)
+
+class Video(
+    val id: Int, val name: String, val link: String, val imageUrl: String, val numberOFViews: Int, val channel: Channel
+)
+
+class Channel(val name: String, val profileImageUrl: String)
